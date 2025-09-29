@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDAV File Explorer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .copy-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            font-family: monospace;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .copy-box:hover {
+            background: #e9ecef;
+        }
+        button {
+            background-color: #0078d4;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #106ebe;
+        }
+        .instructions {
+            text-align: left;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📁 WebDAV File Explorer</h1>
+        <p>Use one of the methods below to connect to your WebDAV server</p>
+        
+        <div class="instructions">
+            <h3>🔗 Method 1: Copy WebDAV Address</h3>
+            <div class="copy-box" id="webdavAddress" onclick="copyToClipboard()">
+                \\96.9.124.105@9999
+            </div>
+            <p>Click to copy, then paste in File Explorer</p>
+            
+            <h3>🗂️ Method 2: Step-by-Step Guide</h3>
+            <ol>
+                <li>Open <strong>File Explorer</strong></li>
+                <li>Right-click on <strong>"This PC"</strong></li>
+                <li>Select <strong>"Map network drive"</strong></li>
+                <li>In the <strong>"Folder"</strong> field, paste: <code>\\96.9.124.105@9999</code></li>
+                <li>Check <strong>"Connect using different credentials"</strong></li>
+                <li>Click <strong>"Finish"</strong></li>
+                <li>If prompted for credentials, click <strong>"Cancel"</strong> or leave blank</li>
+            </ol>
+            
+            <h3>🌐 Method 3: Browser Access</h3>
+            <p>You can also access files directly in your browser:</p>
+            <a href="http://96.9.124.105:9999" target="_blank" style="color: #0078d4; text-decoration: none;">
+                http://96.9.124.105:9999
+            </a>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 12px; color: #666;">
+            WebDAV Server: <strong>96.9.124.105:9999</strong>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const text = "\\\\96.9.124.105@9999";
+            navigator.clipboard.writeText(text).then(function() {
+                const box = document.getElementById('webdavAddress');
+                const originalText = box.textContent;
+                box.textContent = '✓ Copied to clipboard!';
+                box.style.background = '#d4edda';
+                setTimeout(() => {
+                    box.textContent = originalText;
+                    box.style.background = '#f8f9fa';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Try to use Windows-specific protocol (may not work in all browsers)
+        function tryWindowsProtocol() {
+            // This is a long shot but might work in some Edge/IE scenarios
+            try {
+                window.location.href = 'file:\\\\\\96.9.124.105@9999';
+            } catch (e) {
+                alert('Please use Method 1 or 2 to connect to the WebDAV server.');
+            }
+        }
+    </script>
+</body>
+</html>
