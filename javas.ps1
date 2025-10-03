@@ -1,4 +1,4 @@
-$imageUrl = "https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg"
+$imageUrl = "https://raw.githubusercontent.com/bigaersdifmo/test09123/refs/heads/master/image.jpg"
 $imagePath = "$env:TEMP\blue-bird.jpg"
 Invoke-WebRequest -Uri $imageUrl -OutFile $imagePath
 

